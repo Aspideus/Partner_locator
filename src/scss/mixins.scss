@@ -1,0 +1,64 @@
+@mixin font($ff: null, $fs: null, $lh: null, $fw: null, $fy: null, $c: null, $ls: null) {
+  font-family: $ff;
+  font-size: $fs;
+  line-height: $lh;
+  font-weight: $fw;
+  font-style: $fy;
+  color: $c;
+  letter-spacing: $ls;
+}
+
+@mixin position($position, $t: null, $l: null, $r: null, $b: null, $z: null) {
+  position: $position;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+  z-index: $z;
+}
+
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+@mixin sticky($args...) {
+  position: -webkit-sticky; // for old safari
+  @include position(sticky, $args...);
+}
+
+@mixin flex($fd: null, $fw: null, $ai: center, $jc: flex-start, $fs: null, $fg: null) {
+  display: flex;
+  flex-direction: $fd;
+  flex-wrap: $fw;
+  align-items: $ai;
+  justify-content: $jc;
+  flex-shrink: $fs;
+  flex-grow: $fg;
+}
+
+
+@mixin media-m {
+  @media (min-width: #{$v-m}) {
+    @content;
+  }
+}
+
+@mixin media-d {
+  @media (min-width: #{$v-d}) {
+    @content;
+  }
+}
+
+@mixin media($size) {
+  @media (min-width: $size+'px') {
+    @content;
+  }
+}

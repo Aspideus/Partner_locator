@@ -1,0 +1,207 @@
+@import "./variables";
+@import url("../fonts/fonts.css");
+
+body {
+    background-color: $bg-mobile;
+
+    @include font($ff: "Open Sans Reg");
+}
+
+.header{ 
+    margin: 30px;
+
+    &__logo {
+        text-align: center;
+
+        @include media-d {
+            text-align: start;
+            max-width: 1260px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.main {
+    background-image: url('../img/bg.jpg');
+    width: 100vw;
+    color: $c-white;
+    margin-bottom: 55px;
+    @include flex($fd: column);
+
+
+    &__h1 {
+        padding-top: 50px;
+        text-align: center;
+        max-width: 300px;
+
+        @include font($fs: 30px, $lh: 40px);
+
+        @include media-d {
+            max-width: 700px;
+            padding-top: 120px;
+            @include font($fs: 46px, $lh: 28px);
+        }
+
+    }
+    &__h2 {
+        max-width: 300px;
+        text-align: center;
+        @include font($fs: 14px, $lh: 28px);
+
+        @include media-d {
+            max-width: 700px;
+            @include font($fs: 16px, $lh: 32px);
+        }
+    }
+
+    &__text-input {
+        width: 300px;
+        height: 45px;
+        padding: 0 15px;
+        color: $c-grey;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        background: $c-white;
+        border: 1px solid $c-white;
+        box-sizing: border-box;
+        @include font($fs: 15px, $lh: 32px);
+
+        @include media-d {
+            width: 600px;
+        }
+
+        &::after {
+            content: '&';
+        }
+    }
+
+    &__form {
+        margin-bottom: 65px;
+
+        @include media-d {
+            display: flex;
+            margin-bottom: 120px;
+        }
+
+        &--input {
+
+            @include media-d {
+                
+                flex: 0 0 30%;
+
+                &:first-child {
+                    flex: 0 0 36%;
+                    margin-right: 4%;
+                }
+            }
+        }
+
+        select {
+            height: 45px;
+            width: 100%;
+            padding: 0 10px;
+            margin-bottom: 8px;
+
+            background: rgba(0, 0, 0, 0.0001);
+            border: 2px solid $c-white;
+            box-sizing: border-box;
+            color: $c-white;
+            
+            @include font($fs: 15px, $lh: 32px);
+
+            @include media-d {
+                @include font($fs: 13px, $lh: 40px);
+            }
+
+            & > option {
+                color: $c-black;
+            }
+        }
+    }
+}
+
+
+.card {
+    background: $c-white;
+    box-shadow: 0px 1px 2px rgba(5, 27, 43, 0.14);
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 40px 20px;
+    max-width: 300px;
+    @include flex($jc: space-between, $fd: column, $ai: start);
+
+    @include media-d {
+        max-width: 1200px;
+        padding: 35px 75px;
+        flex-direction: row;
+    }
+
+    &__column {
+        @include flex($fd: column);
+        height: 65px;
+        text-align: start;
+        //max-width: 450px;
+        align-items: flex-start;
+        place-content: space-between;
+
+        //height: 100px;
+
+        &:first-child {
+            place-content: center;
+
+            @include media-d {
+                //place-content: flex-start;
+            }
+        }
+
+        &--logo {
+            
+        }
+        &--company {
+            margin-bottom: 15px;
+            @include font($ff: "Open Sans Bold", $fs: 21px)
+        }
+        &--address {
+            
+        }
+        &--site {
+            
+        }
+        &--phone {
+            
+        }
+        &--status {
+            
+        }
+        &--second {
+            height: auto;
+            margin-top: 45px;
+            border-bottom: 1px solid #DCDEE0;
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            
+            @include media-d {
+                margin: 0 75px;
+                border-bottom: none;
+                padding: 0;
+                flex: 0 0 30%;
+            }
+        }
+        &--third {
+            @include media-d {
+                flex: 0 0 20%;
+            }
+        }
+        &--last {
+            place-content:  flex-end;
+
+            @include media-d {
+                border-left: 1px solid #DCDEE0;
+                padding-left: 45px;
+                margin-left: 25px;
+                flex: 0 0 25%;
+                place-content: flex-start;
+            }
+        }
+    }
+}
